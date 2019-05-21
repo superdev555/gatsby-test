@@ -17,6 +17,7 @@
     "gatsby-plugin-manifest": "^2.0.9",
     "gatsby-plugin-offline": "^2.0.16",
     "gatsby-plugin-react-helmet": "^3.0.2",
+    "gatsby-plugin-sass": "^2.0.11",
     "gatsby-plugin-sharp": "^2.0.14",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-sharp": "^2.1.8",
@@ -24,6 +25,7 @@
     "jwks-rsa": "^1.3.0",
     "mongoose": "^5.4.7",
     "netlify-lambda": "^1.3.0",
+    "node-sass": "^4.12.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -45,7 +47,12 @@
     "prod": "NODE_ENV=production npm run build; npm run build:lambda"
   },
   "devDependencies": {
-    "prettier": "^1.15.2"
+    "css-loader": "^2.1.1",
+    "eslint": "^5.16.0",
+    "eslint-loader": "^2.1.2",
+    "gatsby-plugin-eslint": "^2.0.5",
+    "prettier": "^1.15.2",
+    "sass": "^1.20.1"
   },
   "repository": {
     "type": "git",

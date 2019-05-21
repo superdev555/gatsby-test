@@ -1,16 +1,14 @@
 import React from 'react'
 import { navigate } from 'gatsby'
-import { handleLogin, logout, isLoggedIn } from "../services/auth"
+import { isLoggedIn } from '../services/auth'
 
 import Layout from '../components/layout'
-import Button from '../components/button'
 import SEO from '../components/seo'
 
 class IndexPage extends React.Component {
-
   state = {
     posts: [],
-    isPostsLoaded: false
+    isPostsLoaded: false,
   }
 
   componentDidMount() {
@@ -23,8 +21,16 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <SEO title="Login | Study Email Test" keywords={[`gatsby`, `application`, `react`, `study-email-test`, `auth0`]} />
-        <Button variant="inline" onClick={handleLogin}>log in or sign up</Button>      
+        <SEO
+          title="Login | Study Email Test"
+          keywords={[
+            `gatsby`,
+            `application`,
+            `react`,
+            `study-email-test`,
+            `auth0`,
+          ]}
+        />
       </Layout>
     )
   }

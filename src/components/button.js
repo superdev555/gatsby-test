@@ -1,15 +1,18 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-
-const Button = ({ buttonType = "button", variant = "default", children = null, ...rest }) => {
-
+const Button = ({
+  buttonType = 'button',
+  variant = 'default',
+  children = null,
+  ...rest
+}) => {
   const ButtonStyled = styled[buttonType]`
     display: ${variant === 'inline' ? 'inline-block' : 'block'};
     padding: 5px 30px;
     margin: 0;
     border-radius: 4px;
-    background-color: ${ variant === 'header' ? '#424242' : '#713aa3'};
+    background-color: ${variant === 'header' ? '#424242' : '#713aa3'};
     color: #fff;
     cursor: pointer;
     margin-left: auto;
@@ -21,11 +24,7 @@ const Button = ({ buttonType = "button", variant = "default", children = null, .
       color: #59525f;
     }
   `
-  return (
-    <ButtonStyled {...rest}>
-      {children}
-    </ButtonStyled>
-  )
+  return <ButtonStyled {...rest}> {children}</ButtonStyled>
 }
 
 export default Button

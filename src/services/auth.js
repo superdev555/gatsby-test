@@ -4,13 +4,15 @@ export const isBrowser = typeof window !== 'undefined'
 
 let profile = false
 
-const auth0 = isBrowser ? new auth0js.WebAuth({
-  domain: process.env.AUTH0_DOMAIN,
-  clientID: process.env.AUTH0_CLIENTID,
-  responseType: 'token id_token',
-  scope: 'openid profile',
-  redirectUri: process.env.REDIRECT_URI,
-}) : {}
+const auth0 = isBrowser
+  ? new auth0js.WebAuth({
+      domain: process.env.AUTH0_DOMAIN,
+      clientID: process.env.AUTH0_CLIENTID,
+      responseType: 'token id_token',
+      scope: 'openid profile',
+      redirectUri: process.env.REDIRECT_URI,
+    })
+  : {}
 
 export const getAccessToken = () => {
   return window.localStorage.getItem('access_token')
@@ -27,14 +29,14 @@ const getUser = () => {
     const accessToken = getAccessToken()
 
     if (!isLoggedIn()) {
-      resolve("no user name")
+      resolve('no user name')
       return
     }
 
     auth0.client.userInfo(accessToken, (err, userProfile) => {
       if (err) {
         reject(err)
-        return;
+        return
       }
 
       profile = userProfile
@@ -43,14 +45,16 @@ const getUser = () => {
   })
 }
 
-export const getUserNickname = () => isBrowser ? window.localStorage.getItem("nickname") : ''
+export const getUserNickname = () =>
+  isBrowser ? window.localStorage.getItem('nickname') : ''
 
-export const getUserProfileImage = () => isBrowser ? window.localStorage.getItem("profile_image") : ''
+export const getUserProfileImage = () =>
+  isBrowser ? window.localStorage.getItem('profile_image') : ''
 
 const setUserDetails = user => {
   if (!isBrowser) return false
-  window.localStorage.setItem("nickname", `@${user.nickname}`)
-  window.localStorage.setItem("profile_image", `${user.picture}`)
+  window.localStorage.setItem('nickname', `@${user.nickname}`)
+  window.localStorage.setItem('profile_image', `${user.picture}`)
 }
 
 const setSession = authResult => {

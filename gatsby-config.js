@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `study-email-test`,
+    title: `Study Email Test`,
     description: `A simple quiz site with Auth0 JWT authentication and Netlify Serverless`,
     author: `@hryhorii`,
   },

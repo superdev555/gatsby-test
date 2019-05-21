@@ -7,7 +7,6 @@ import {
   logout,
   getUserNickname,
 } from '../services/auth'
-import Button from './button'
 
 import styles from './layout.module.scss'
 
@@ -17,25 +16,34 @@ const Header = ({ siteTitle }) => (
   <div>
     <div className={styles.header}>
       <div className={styles.nav}>
-        <Link to="/" className={styles.link}>
-          {siteTitle}
-        </Link>
+        <div className={styles.menuItems}>
+          <Link to="/" className={styles.link}>
+            {siteTitle}
+          </Link>
+        </div>
         {isLoggedIn() ? (
-          <Button
-            href="/"
+          <Link
+            to=""
+            className={styles.link}
             onClick={event => {
               event.preventDefault()
               logout(() => navigate(`/`))
             }}
-            variant="header"
             title={`Logout ${nickname}`}
           >
             Logout
-          </Button>
+          </Link>
         ) : (
-          <Button variant="inline" onClick={handleLogin}>
+          <Link
+            to=""
+            className={styles.link}
+            onClick={event => {
+              event.preventDefault()
+              handleLogin()
+            }}
+          >
             Login
-          </Button>
+          </Link>
         )}
       </div>
     </div>

@@ -10,25 +10,11 @@ body {
   background-color: #e8e8e8;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle;
-  border: 0;
-}
-
 a {
   text-decoration: none;
   color: rgba(34, 34, 34, 0.8);
 }
 
-ul,
-ol {
-  padding-left: 2em;
-  margin: 1em 0 0 0;
-}
-
-// layout
 .header {
   position: fixed;
   top: 0;
@@ -47,10 +33,13 @@ ol {
     flex-direction: row;
     max-width: 1260px;
     z-index: 1000;
-    justify-content: flex-start;
+    justify-content: space-between;
     overflow-x: auto;
     overflow-y: hidden;
-
+    .menuItems {
+      margin: auto 0;
+      display: inline-flex;
+    }
     .link {
       position: relative;
       display: flex;
@@ -75,4 +64,12 @@ ol {
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  margin-top: 60px;
+  height: calc(100vh - 60px);
+  width: 100%;
+  justify-content: center;
 }

@@ -101,5 +101,10 @@ export const logout = callback => {
   window.localStorage.removeItem('expires_at')
   window.localStorage.removeItem('nickname')
   window.localStorage.removeItem('profile_image')
+
+  auth0.logout({
+    returnTo: window.location.origin,
+  })
+
   callback()
 }
